@@ -1,0 +1,23 @@
+const express = require("express");
+const router = express.Router();
+
+const protect = require("../middleware/authMiddleware");
+const authorizeRoles = require("../middleware/roleMiddleware");
+
+const {
+  createProject,
+  getProjects,
+} = require("../controllers/projectController");
+
+// @route   POST /api/projects
+// @desc    Create project
+// @access  Client only
+router.post("/", protect, authorizeRoles("client"), createProject);
+
+// @route   GET /api/projects
+// @desc    Get all projects
+// @access  Public
+router.get("/", getProjects);
+
+module.exports = router;
+
