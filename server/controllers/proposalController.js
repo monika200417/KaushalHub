@@ -3,7 +3,9 @@ const Project = require("../models/Project");
 // @desc    Create a proposal
 // @route   POST /api/proposals
 // @access  Freelancer only
+// console.log(req.user);
 const createProposal = async (req, res) => {
+  console.log(req.user);
   try {
     const { projectId, proposalText, quotedPrice } = req.body;
 

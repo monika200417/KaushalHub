@@ -8,16 +8,12 @@ import Dashboard from "./pages/Dashboard";
 function App() {
   return (
     <Router>
-      <div style={{ padding: "20px", fontFamily: "Arial" }}>
-        <h1>KaushalHub</h1>
-
-        <Routes>
-          <Route path="/" element={<Projects />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Projects />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </Router>
   );
 }
