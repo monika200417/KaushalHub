@@ -1,0 +1,64 @@
+import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+
+import { getMyProposals } from "../services/proposalService";
+
+function MyProposals() {
+  const [proposals, setProposals] = useState([]);
+
+  useEffect(() => {
+    const fetchProposals = async () => {
+      try {
+        const data = await getMyProposals();
+        setProposals(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProposals();
+  }, []);
+
+  return (
+    <div>
+      <Navbar />
+
+      <section className="py-20 px-6 bg-gray-100 min-h-screen">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-800 mb-10">
+            My Proposals
+          </h1>
+
+          <div className="space-y-6">
+            {proposals.map((proposal) => (
+              <div
+                key={proposal._id}
+                className="bg-white rounded-2xl shadow-md p-6"
+              >
+                <h2 className="text-2xl font-bold text-blue-600 mb-3">
+                  {proposal.project.title}
+                </h2>
+
+                <p className="text-gray-600 mb-4">
+                  {proposal.proposalText}
+                </p>
+
+                <div className="flex justify-between">
+                  <p className="font-semibold">
+                    ₹ {proposal.quotedPrice}
+                  </p>
+
+                  <p className="text-yellow-600 font-semibold capitalize">
+                    {proposal.status}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default MyProposals;

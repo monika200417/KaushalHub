@@ -72,9 +72,23 @@ const acceptProposal = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+// @desc    Get logged-in freelancer proposals
+// @route   GET /api/proposals/my-proposals
+// @access  Freelancer only
+const getMyProposals = async (req, res) => {
+  try {
+    const proposals = await Proposal.find({
+      freelancer: req.user.id,
+    }).populate("project");
 
+    res.json(proposals);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
 module.exports = {
   createProposal,
   getProjectProposals,
   acceptProposal,
+  getMyProposals,
 };
