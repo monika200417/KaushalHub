@@ -41,7 +41,7 @@ function Dashboard() {
               </p>
 
               <a
-                href="/create-project"
+                href="/my-projects"
                 className="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-xl"
               >
                 View Projects

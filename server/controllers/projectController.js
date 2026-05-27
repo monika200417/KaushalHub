@@ -40,8 +40,25 @@ const getProjects = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+// @desc    Get logged-in client's projects
+// @route   GET /api/projects/my-projects
+// @access  Client only
+const getMyProjects = async (req, res) => {
+  try {
+    console.log(req.user);
+    const projects = await Project.find({
+      client: req.user.id,
+    });
+
+    res.json(projects);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};
 module.exports = {
   createProject,
   getProjects,
+  getMyProjects,
 };
 

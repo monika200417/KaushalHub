@@ -21,3 +21,17 @@ export const createProject = async (projectData) => {
 
   return res.data;
 };
+export const getMyProjects = async () => {
+  const token = localStorage.getItem("token");
+
+  const res = await axios.get(
+    "http://localhost:5000/api/projects/my-projects",
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return res.data;
+};
