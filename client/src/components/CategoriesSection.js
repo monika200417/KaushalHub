@@ -23,13 +23,13 @@ function CategoriesSection() {
           {categories.map((category, index) => (
             <div
               key={index}
-              className="bg-blue-50 hover:bg-blue-100 transition rounded-2xl p-8 text-center shadow-sm hover:shadow-lg cursor-pointer"
+              className="bg-primary hover:bg-primaryDark transition rounded-2xl p-8 text-center shadow-sm hover:shadow-lg cursor-pointer"
             >
               <div className="text-5xl mb-4">
                 {category.icon}
               </div>
 
-              <h3 className="text-2xl font-semibold text-gray-800">
+              <h3 className="text-2xl font-semibold text-white">
                 {category.title}
               </h3>
             </div>

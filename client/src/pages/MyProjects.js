@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 import { getMyProjects } from "../services/projectService";
 
@@ -20,22 +21,36 @@ function MyProjects() {
   }, []);
 
   return (
-    <div>
-      <Navbar />
+  <div>
+    <div className="flex">
+  <Sidebar />
 
-      <section className="py-20 px-6 bg-gray-100 min-h-screen">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-800 mb-10">
-            My Projects
-          </h1>
+  <div className="flex-1 p-6">
 
+    <section className="py-10 px-6 bg-gray-100 min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-gray-800 mb-10">
+          My Projects
+        </h1>
+
+        {projects.length === 0 ? (
+          <div className="bg-white rounded-2xl shadow-md p-10 text-center">
+            <h2 className="text-2xl font-bold text-gray-700 mb-3">
+              No Projects Yet
+            </h2>
+
+            <p className="text-gray-500">
+              Start by creating your first project.
+            </p>
+          </div>
+        ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <div
                 key={project._id}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
               >
-                <h2 className="text-2xl font-bold text-blue-600 mb-4">
+                <h2 className="text-2xl font-bold text-primary mb-4">
                   {project.title}
                 </h2>
 
@@ -55,7 +70,13 @@ function MyProjects() {
                     <span className="font-semibold">
                       Status:
                     </span>{" "}
-                    <span className="capitalize">
+                    <span
+                      className={`px-3 py-1 rounded-full text-white text-sm capitalize ${
+                        project.status === "open"
+                          ? "bg-green-500"
+                          : "bg-red-500"
+                      }`}
+                    >
                       {project.status}
                     </span>
                   </p>
@@ -63,17 +84,20 @@ function MyProjects() {
 
                 <a
                   href={`/project-proposals/${project._id}`}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl"
+                  className="bg-primary hover:bg-primaryDark text-white px-5 py-3 rounded-xl"
                 >
                   View Proposals
                 </a>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-    </div>
-  );
+        )}
+      </div>
+    </section>
+      </div>
+</div>
+  </div>
+);
 }
 
 export default MyProjects;

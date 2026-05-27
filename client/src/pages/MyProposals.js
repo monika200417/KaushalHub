@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 import { getMyProposals } from "../services/proposalService";
 
@@ -21,10 +21,13 @@ function MyProposals() {
 
   return (
     <div>
-      <Navbar />
+      <div className="flex">
+  <Sidebar />
 
-      <section className="py-20 px-6 bg-gray-100 min-h-screen">
-        <div className="max-w-5xl mx-auto">
+  <div className="flex-1 p-6">
+
+      <section className="py-10 px-6 bg-gray-100 min-h-screen">
+        <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-800 mb-10">
             My Proposals
           </h1>
@@ -33,9 +36,9 @@ function MyProposals() {
             {proposals.map((proposal) => (
               <div
                 key={proposal._id}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
               >
-                <h2 className="text-2xl font-bold text-blue-600 mb-3">
+                <h2 className="text-2xl font-bold text-primary mb-3">
                   {proposal.project.title}
                 </h2>
 
@@ -48,15 +51,23 @@ function MyProposals() {
                     ₹ {proposal.quotedPrice}
                   </p>
 
-                  <p className="text-yellow-600 font-semibold capitalize">
+                  <span
+                    className={`px-3 py-1 rounded-full text-white text-sm capitalize ${
+                      proposal.status === "accepted"
+                        ? "bg-green-500"
+                        : "bg-yellow-500"
+                    }`}
+                  >
                     {proposal.status}
-                  </p>
+                  </span>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+        </div>
+</div>
     </div>
   );
 }

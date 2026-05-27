@@ -1,19 +1,22 @@
-import Navbar from "../components/Navbar";
-
+// import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 function Dashboard() {
   return (
     <div>
-      <Navbar />
+      <div className="flex">
+  <Sidebar />
 
-      <section className="py-20 px-6 bg-gray-100 min-h-screen">
-        <div className="max-w-6xl mx-auto">
+  <div className="flex-1 p-6">
+
+      <section className="py-10 px-6 bg-gray-100 min-h-screen">
+        <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-800 mb-10">
             Client Dashboard
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Create Project */}
-            <div className="bg-white rounded-2xl shadow-md p-8">
+            <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
               <h2 className="text-2xl font-bold mb-4">
                 Create Project
               </h2>
@@ -24,14 +27,14 @@ function Dashboard() {
 
               <a
                 href="/create-project"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl"
+                className="bg-primary hover:bg-primaryDark text-white px-5 py-3 rounded-xl"
               >
                 Create Now
               </a>
             </div>
 
             {/* Manage Projects */}
-            <div className="bg-white rounded-2xl shadow-md p-8">
+            <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
               <h2 className="text-2xl font-bold mb-4">
                 Manage Projects
               </h2>
@@ -42,7 +45,7 @@ function Dashboard() {
 
               <a
                 href="/my-projects"
-                className="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-xl"
+                className="bg-primary hover:bg-primaryDark text-white px-5 py-3 rounded-xl"
               >
                 View Projects
               </a>
@@ -58,13 +61,15 @@ function Dashboard() {
                 Track freelancer interactions and hiring progress.
               </p>
 
-              <button className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-3 rounded-xl">
+              <button className="bg-accent hover:bg-accentDark text-white px-5 py-3 rounded-xl">
                 Coming Soon
               </button>
             </div>
           </div>
         </div>
       </section>
+        </div>
+      </div>
     </div>
   );
 }

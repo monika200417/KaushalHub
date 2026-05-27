@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 import { createProject } from "../services/projectService";
 function CreateProject() {
   const [title, setTitle] = useState("");
@@ -32,10 +32,13 @@ function CreateProject() {
 
   return (
     <div>
-      <Navbar />
+      <div className="flex">
+  <Sidebar />
 
-      <section className="py-20 px-6 bg-gray-100 min-h-screen">
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-md p-10">
+  <div className="flex-1 p-6">
+
+      <section className="py-10 px-6 bg-gray-100 min-h-screen">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-md p-10">
           <h1 className="text-4xl font-bold text-gray-800 mb-8">
             Create Project
           </h1>
@@ -87,13 +90,15 @@ function CreateProject() {
             {/* Button */}
             <button
                 onClick={handleCreateProject}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl"
+                className="bg-primary hover:bg-primaryDark text-white px-8 py-4 rounded-xl"
     >
              Create Project
             </button>
           </div>
         </div>
       </section>
+        </div>
+</div>
     </div>
   );
 }

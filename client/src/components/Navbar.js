@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Navbar() {
   const role = localStorage.getItem("role");
 
@@ -8,23 +9,20 @@ function Navbar() {
 
   return (
     <nav className="flex justify-between items-center px-10 py-5 border-b bg-white shadow-sm">
-      <h1 className="text-3xl font-bold text-blue-600">
+      <h1 className="text-3xl font-bold text-primary">
         KaushalHub
       </h1>
 
       <div className="flex gap-6 text-gray-700 font-medium items-center">
-        <a href="/" className="hover:text-blue-600">
+        <Link to="/" className="hover:text-primary">
           Home
-        </a>
+        </Link>
 
         {/* Freelancer Links */}
         {role === "freelancer" && (
-          <a
-            href="/my-proposals"
-            className="hover:text-blue-600"
-          >
+          <Link to="/my-proposals" className="hover:text-primary">
             My Proposals
-          </a>
+          </Link>
         )}
 
         {/* Client Links */}
@@ -32,7 +30,7 @@ function Navbar() {
           <>
             <a
               href="/dashboard"
-              className="hover:text-blue-600"
+              className="hover:text-primary"
             >
               Dashboard
             </a>
@@ -42,13 +40,13 @@ function Navbar() {
         {/* Logged Out */}
         {!role && (
           <>
-            <a href="/login" className="hover:text-blue-600">
+            <Link to="/login" className="hover:text-primary">
               Login
-            </a>
+            </Link>
 
-            <a href="/register" className="hover:text-blue-600">
+            <Link to="/register" className="hover:text-primary">
               Register
-            </a>
+            </Link>
           </>
         )}
 
@@ -56,7 +54,7 @@ function Navbar() {
         {role && (
           <button
             onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl"
+            className="bg-accent hover:bg-accentDark text-white px-4 py-2 rounded-xl"
           >
             Logout
           </button>

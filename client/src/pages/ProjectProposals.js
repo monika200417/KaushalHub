@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 import {
   getProjectProposals,
@@ -47,10 +47,13 @@ function ProjectProposals() {
 
   return (
     <div>
-      <Navbar />
+      <div className="flex">
+  <Sidebar />
 
-      <section className="py-20 px-6 bg-gray-100 min-h-screen">
-        <div className="max-w-5xl mx-auto">
+  <div className="flex-1 p-6">
+
+      <section className="py-10 px-6 bg-gray-100 min-h-screen">
+        <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-800 mb-10">
             Project Proposals
           </h1>
@@ -59,9 +62,9 @@ function ProjectProposals() {
             {proposals.map((proposal) => (
               <div
                 key={proposal._id}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
               >
-                <h2 className="text-2xl font-bold text-blue-600 mb-3">
+                <h2 className="text-2xl font-bold text-primary mb-3">
                   ₹ {proposal.quotedPrice}
                 </h2>
 
@@ -70,14 +73,20 @@ function ProjectProposals() {
                 </p>
 
                 <div className="flex justify-between items-center">
-                  <p className="font-semibold capitalize">
-                    Status: {proposal.status}
-                  </p>
+                  <span
+                    className={`px-3 py-1 rounded-full text-white text-sm capitalize ${
+                      proposal.status === "accepted"
+                        ? "bg-green-500"
+                        : "bg-yellow-500"
+                    }`}
+                  >
+                    {proposal.status}
+                  </span>
 
                   {proposal.status !== "accepted" && (
                     <button
                       onClick={() => handleAccept(proposal._id)}
-                      className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-xl"
+                      className="bg-primary hover:bg-primaryDark text-white px-5 py-2 rounded-xl"
                     >
                       Accept
                     </button>
@@ -88,6 +97,8 @@ function ProjectProposals() {
           </div>
         </div>
       </section>
+        </div>
+</div>
     </div>
   );
 }

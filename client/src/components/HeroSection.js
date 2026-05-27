@@ -1,8 +1,8 @@
 function HeroSection() {
   return (
-    <section className="text-center py-24 px-6 bg-gradient-to-b from-blue-50 to-white">
+    <section className="text-center py-24 px-6 bg-gradient-to-b from-primary to-white">
       <h1 className="text-5xl md:text-6xl font-bold text-gray-800 leading-tight">
-        Connecting India’s <span className="text-blue-600">Skills</span>
+        Connecting India’s <span className="text-white">Skills</span>
         <br />
         with Opportunities
       </h1>
@@ -13,11 +13,11 @@ function HeroSection() {
       </p>
 
       <div className="mt-10 flex justify-center gap-5">
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md">
+        <button className="bg-primary hover:bg-primaryDark text-white px-6 py-3 rounded-xl font-semibold shadow-md">
           Find Work
         </button>
 
-        <button className="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-xl font-semibold">
+        <button className="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-xl font-semibold">
           Hire Talent
         </button>
       </div>
