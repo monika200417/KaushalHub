@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import CreateProject from "./pages/CreateProject";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Projects from "./pages/Projects";
@@ -16,7 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/my-proposals" element={<MyProposals />} />
         <Route path="/project-proposals/:projectId" element={<ProjectProposals />} />
-  
+        <Route path="/create-project" element={<CreateProject />} />
   
 
 
