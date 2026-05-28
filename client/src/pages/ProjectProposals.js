@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import StatusBadge from "../components/StatusBadge";
 import Sidebar from "../components/Sidebar";
-
+import Button from "../components/Button";
+import Card from "../components/Card";
 import {
   getProjectProposals,
   acceptProposal,
@@ -60,10 +61,7 @@ function ProjectProposals() {
 
           <div className="space-y-6">
             {proposals.map((proposal) => (
-              <div
-                key={proposal._id}
-                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
-              >
+              <Card key={proposal._id}>
                 <h2 className="text-2xl font-bold text-primary mb-3">
                   ₹ {proposal.quotedPrice}
                 </h2>
@@ -73,26 +71,19 @@ function ProjectProposals() {
                 </p>
 
                 <div className="flex justify-between items-center">
-                  <span
-                    className={`px-3 py-1 rounded-full text-white text-sm capitalize ${
-                      proposal.status === "accepted"
-                        ? "bg-green-500"
-                        : "bg-yellow-500"
-                    }`}
-                  >
-                    {proposal.status}
-                  </span>
+                  <StatusBadge status={proposal.status} />
 
                   {proposal.status !== "accepted" && (
-                    <button
-                      onClick={() => handleAccept(proposal._id)}
-                      className="bg-primary hover:bg-primaryDark text-white px-5 py-2 rounded-xl"
-                    >
-                      Accept
-                    </button>
+                    <Button
+  variant="success"
+  onClick={() => handleAccept(proposal._id)}
+  className="px-5 py-2"
+>
+  Accept
+</Button>
                   )}
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>

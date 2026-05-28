@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 // import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-
+import StatusBadge from "../components/StatusBadge";
 import { getMyProjects } from "../services/projectService";
-
+import Card from "../components/Card";
 function MyProjects() {
   const [projects, setProjects] = useState([]);
 
@@ -46,10 +46,9 @@ function MyProjects() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <div
-                key={project._id}
-                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
-              >
+              <Card
+  key={project._id}
+>
                 <h2 className="text-2xl font-bold text-primary mb-4">
                   {project.title}
                 </h2>
@@ -70,15 +69,7 @@ function MyProjects() {
                     <span className="font-semibold">
                       Status:
                     </span>{" "}
-                    <span
-                      className={`px-3 py-1 rounded-full text-white text-sm capitalize ${
-                        project.status === "open"
-                          ? "bg-green-500"
-                          : "bg-red-500"
-                      }`}
-                    >
-                      {project.status}
-                    </span>
+                    <StatusBadge status={project.status} />
                   </p>
                 </div>
 
@@ -88,7 +79,7 @@ function MyProjects() {
                 >
                   View Proposals
                 </a>
-              </div>
+              </Card>
             ))}
           </div>
         )}

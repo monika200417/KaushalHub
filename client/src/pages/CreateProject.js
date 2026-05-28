@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { createProject } from "../services/projectService";
+import Button from "../components/Button";
 function CreateProject() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -87,13 +88,9 @@ function CreateProject() {
               className="w-full border rounded-xl p-4"
             />
 
-            {/* Button */}
-            <button
-                onClick={handleCreateProject}
-                className="bg-primary hover:bg-primaryDark text-white px-8 py-4 rounded-xl"
-    >
-             Create Project
-            </button>
+            <Button onClick={handleCreateProject}>
+  Create Project
+</Button>
           </div>
         </div>
       </section>

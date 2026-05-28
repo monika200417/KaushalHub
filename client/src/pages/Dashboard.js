@@ -1,4 +1,4 @@
-// import Navbar from "../components/Navbar";
+import Card from "../components/Card";
 import Sidebar from "../components/Sidebar";
 function Dashboard() {
   return (
@@ -16,7 +16,7 @@ function Dashboard() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Create Project */}
-            <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
+            <Card className="p-8">
               <h2 className="text-2xl font-bold mb-4">
                 Create Project
               </h2>
@@ -31,10 +31,10 @@ function Dashboard() {
               >
                 Create Now
               </a>
-            </div>
+            </Card>
 
             {/* Manage Projects */}
-            <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
+            <Card className="p-8">
               <h2 className="text-2xl font-bold mb-4">
                 Manage Projects
               </h2>
@@ -49,10 +49,10 @@ function Dashboard() {
               >
                 View Projects
               </a>
-            </div>
+            </Card>
 
             {/* Activity */}
-            <div className="bg-white rounded-2xl shadow-md p-8">
+            <Card className="p-8">
               <h2 className="text-2xl font-bold mb-4">
                 Activity
               </h2>
@@ -64,7 +64,7 @@ function Dashboard() {
               <button className="bg-accent hover:bg-accentDark text-white px-5 py-3 rounded-xl">
                 Coming Soon
               </button>
-            </div>
+            </Card>
           </div>
         </div>
       </section>

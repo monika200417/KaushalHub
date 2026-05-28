@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-
+import Button from "./Button";
 function Sidebar() {
   const role = localStorage.getItem("role");
   const navigate = useNavigate();
@@ -74,12 +74,13 @@ function Sidebar() {
           Account
         </p>
 
-        <button
-          onClick={handleLogout}
-          className="bg-accent hover:bg-accentDark text-white px-4 py-2 rounded-xl mt-6 transition"
-        >
-          Logout
-        </button>
+        <Button
+  variant="accent"
+  onClick={handleLogout}
+  className="mt-6 w-full"
+>
+  Logout
+</Button>
       </div>
     </div>
   );

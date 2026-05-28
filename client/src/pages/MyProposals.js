@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
-
+import Card from "../components/Card";
 import { getMyProposals } from "../services/proposalService";
 
 function MyProposals() {
@@ -34,10 +34,7 @@ function MyProposals() {
 
           <div className="space-y-6">
             {proposals.map((proposal) => (
-              <div
-                key={proposal._id}
-                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
-              >
+              <Card key={proposal._id}>
                 <h2 className="text-2xl font-bold text-primary mb-3">
                   {proposal.project.title}
                 </h2>
@@ -61,7 +58,7 @@ function MyProposals() {
                     {proposal.status}
                   </span>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
