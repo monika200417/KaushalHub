@@ -4,6 +4,7 @@ const Project = require("../models/Project");
 // @route   POST /api/projects
 // @access  Client only
 const createProject = async (req, res) => {
+  console.log("CREATE PROJECT HIT");
   try {
     const { title, description, skillsRequired, budget, deadline } = req.body;
 
