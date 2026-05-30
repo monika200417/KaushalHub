@@ -86,14 +86,14 @@ This project was built as a portfolio project to gain hands-on experience with f
 
 ## Screenshots
 
-Add screenshots here after deployment:
+<img width="1920" height="1080" alt="Screenshot 2026-05-30 133028" src="https://github.com/user-attachments/assets/00d2de81-fcb4-40da-82ed-325d760f8f45" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-30 133036" src="https://github.com/user-attachments/assets/6297829a-d378-4bf6-8f43-68abc393b203" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-30 133213" src="https://github.com/user-attachments/assets/9e26b42c-65a2-40e7-8e29-1a16a1fa1300" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-30 133238" src="https://github.com/user-attachments/assets/6bfd42ff-1d24-40f1-8b83-1b3ca80b1183" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-30 133248" src="https://github.com/user-attachments/assets/f0e40c24-f9f9-4c8e-8636-9e122a3ab49b" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-30 133301" src="https://github.com/user-attachments/assets/90f46203-ce04-440d-a406-508b05cda9df" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-30 133022" src="https://github.com/user-attachments/assets/ba5fa707-6ea5-45cd-a4ce-27fde2f9090f" />
 
-* Home Page
-* Dashboard
-* Create Project
-* My Projects
-* Project Proposals
-* Freelancer Proposals
 
 ---
 
