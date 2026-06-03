@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 function Navbar() {
   const role = localStorage.getItem("role");
 
@@ -8,12 +9,12 @@ function Navbar() {
   };
 
   return (
-    <nav className="flex justify-between items-center px-10 py-5 border-b bg-white shadow-sm">
+    <nav className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-4 md:py-5 border-b bg-white shadow-sm gap-4">
       <h1 className="text-3xl font-bold text-primary">
         KaushalHub
       </h1>
 
-      <div className="flex gap-6 text-gray-700 font-medium items-center">
+      <div className="flex flex-wrap justify-center gap-4 text-gray-700 font-medium items-center">
         <Link to="/" className="hover:text-primary">
           Home
         </Link>
@@ -27,14 +28,12 @@ function Navbar() {
 
         {/* Client Links */}
         {role === "client" && (
-          <>
-            <a
-              href="/dashboard"
-              className="hover:text-primary"
-            >
-              Dashboard
-            </a>
-          </>
+          <Link
+            to="/dashboard"
+            className="hover:text-primary"
+          >
+            Dashboard
+          </Link>
         )}
 
         {/* Logged Out */}
@@ -54,7 +53,7 @@ function Navbar() {
         {role && (
           <button
             onClick={handleLogout}
-            className="bg-accent hover:bg-accentDark text-white px-4 py-2 rounded-xl"
+            className="bg-accent hover:bg-accentDark text-white px-4 py-2 rounded-xl transition"
           >
             Logout
           </button>

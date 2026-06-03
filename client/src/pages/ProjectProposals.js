@@ -8,7 +8,7 @@ import {
   getProjectProposals,
   acceptProposal,
 } from "../services/proposalService";
-
+import { toast } from "react-toastify";
 function ProjectProposals() {
   const { projectId } = useParams();
 
@@ -31,7 +31,7 @@ function ProjectProposals() {
     try {
       await acceptProposal(proposalId);
 
-      alert("Proposal accepted");
+     toast.success("Proposal accepted");
 
       setProposals((prev) =>
         prev.map((proposal) =>
@@ -42,7 +42,7 @@ function ProjectProposals() {
       );
     } catch (error) {
       console.log(error);
-      alert("Failed to accept proposal");
+      toast.error("Failed to accept proposal");
     }
   };
 

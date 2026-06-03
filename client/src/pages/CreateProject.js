@@ -1,15 +1,45 @@
+
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { createProject } from "../services/projectService";
 import Button from "../components/Button";
+import { toast } from "react-toastify";
 function CreateProject() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [skillsRequired, setSkillsRequired] = useState("");
   const [budget, setBudget] = useState("");
   const [deadline, setDeadline] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleCreateProject = async () => {
   try {
+    setLoading(true);
+    if (!title.trim()) {
+      toast.error("Project title is required");
+      return;
+    }
+
+    if (!description.trim()) {
+      toast.error("Project description is required");
+      return;
+    }
+
+    if (!skillsRequired.trim()) {
+      toast.error("Skills are required");
+      return;
+    }
+
+    if (!budget || Number(budget) <= 0) {
+      toast.error("Enter a valid budget");
+      return;
+    }
+
+    if (!deadline) {
+      toast.error("Deadline is required");
+      return;
+    }
+    console.log("Submitting project...");
+    console.log("Project created");
     await createProject({
       title,
       description,
@@ -18,7 +48,7 @@ function CreateProject() {
       deadline,
     });
 
-    alert("Project created successfully");
+    toast.success("Project created successfully");
 
     setTitle("");
     setDescription("");
@@ -27,7 +57,9 @@ function CreateProject() {
     setDeadline("");
   } catch (error) {
     console.log(error);
-    alert("Failed to create project");
+    toast.error("Failed to create project");
+  } finally {
+    setLoading(false);
   }
 };
 
@@ -38,8 +70,8 @@ function CreateProject() {
 
   <div className="flex-1 p-6">
 
-      <section className="py-10 px-6 bg-gray-100 min-h-screen">
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-md p-10">
+      <section className="py-10 px-2 md:px-6 bg-gray-100 min-h-screen">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-md p-4 md:p-10">
           <h1 className="text-4xl font-bold text-gray-800 mb-8">
             Create Project
           </h1>
@@ -88,8 +120,11 @@ function CreateProject() {
               className="w-full border rounded-xl p-4"
             />
 
-            <Button onClick={handleCreateProject}>
-  Create Project
+            <Button
+  onClick={handleCreateProject}
+  disabled={loading}
+>
+  {loading ? "Creating..." : "Create Project"}
 </Button>
           </div>
         </div>

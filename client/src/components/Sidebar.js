@@ -10,7 +10,7 @@ function Sidebar() {
   };
 
   return (
-    <div className="w-64 min-w-[16rem] bg-white shadow-lg min-h-screen p-6 sticky top-0">
+    <div className="hidden md:block w-64 min-w-[16rem] bg-white shadow-lg min-h-screen p-6 sticky top-0">
       <h1 className="text-3xl font-bold text-primary mb-12 border-b pb-4">
         KaushalHub
       </h1>

@@ -4,6 +4,7 @@ function Button({
   type = "button",
   variant = "primary",
   className = "",
+  disabled = false,
 }) {
   const styles = {
     primary:
@@ -20,7 +21,10 @@ function Button({
     <button
       type={type}
       onClick={onClick}
-      className={`${styles[variant]} px-5 py-3 rounded-xl transition ${className}`}
+      disabled={disabled}
+      className={`${styles[variant]} px-5 py-3 rounded-xl transition ${
+  disabled ? "opacity-50 cursor-not-allowed" : ""
+} ${className}`}
     >
       {children}
     </button>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { loginUser } from "../services/authService";
-
+import { toast } from "react-toastify";
 function Login() {
   const [form, setForm] = useState({
     email: "",
@@ -18,14 +18,14 @@ function Login() {
       const data = await loginUser(form);
       console.log(data);
 
-      alert("Login successful");
+      toast.success("Login successful");
 
       // Save token
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.role);
     } catch (error) {
   console.log(error.response?.data);
-  alert(error.response?.data?.message || "Login failed");
+  toast.error(error.response?.data?.message || "Login failed");
       } 
   };
 

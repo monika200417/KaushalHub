@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createProposal } from "../services/proposalService";
-
+import { toast } from "react-toastify";
 function ProjectCard({ project }) {
   const [showForm, setShowForm] = useState(false);
 
@@ -15,14 +15,14 @@ function ProjectCard({ project }) {
         quotedPrice,
       });
 
-      alert("Proposal submitted successfully");
+      toast.success("Proposal submitted successfully");
 
       setShowForm(false);
       setProposalText("");
       setQuotedPrice("");
     } catch (error) {
       console.log(error);
-      alert("Failed to submit proposal");
+      toast.error("Failed to submit proposal");
     }
   };
 
