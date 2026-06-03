@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/KaushalHub/static/css/main.3f5ad20d.css",
-    "main.js": "/KaushalHub/static/js/main.8351c72b.js",
+    "main.js": "/KaushalHub/static/js/main.af00893a.js",
     "static/js/453.af205ec6.chunk.js": "/KaushalHub/static/js/453.af205ec6.chunk.js",
     "index.html": "/KaushalHub/index.html",
     "main.3f5ad20d.css.map": "/KaushalHub/static/css/main.3f5ad20d.css.map",
-    "main.8351c72b.js.map": "/KaushalHub/static/js/main.8351c72b.js.map",
+    "main.af00893a.js.map": "/KaushalHub/static/js/main.af00893a.js.map",
     "453.af205ec6.chunk.js.map": "/KaushalHub/static/js/453.af205ec6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f5ad20d.css",
-    "static/js/main.8351c72b.js"
+    "static/js/main.af00893a.js"
   ]
 }
