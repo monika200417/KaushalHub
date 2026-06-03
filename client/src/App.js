@@ -10,7 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import MyProjects from "./pages/MyProjects";
 function App() {
   return (
-    <Router>
+    <Router basename="/KaushalHub">
       <Routes>
         <Route path="/" element={<Projects />} />
         <Route path="/login" element={<Login />} />
